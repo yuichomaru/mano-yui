@@ -4,8 +4,7 @@ function setup(){
   noFill();
   for(let i = 0; i < 10; i++){
     let size=(i+1)*10;
-
-    ellipse(50,50,size,size);  
+ 
 
     if(i<5){
       stroke(0,0,255);
@@ -13,7 +12,7 @@ function setup(){
       stroke(255,0,0);
     }
 
- 
+     ellipse(50,50,size,size);  
 
 
     // BLANK[1] 条件分岐を使って、前半は赤、後半は青で円を描こう
