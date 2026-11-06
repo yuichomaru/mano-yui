@@ -20,13 +20,28 @@ function draw(){
   const size = height * 0.1; // キャラクターのサイズ
 
   // 地面を描く
-  const groundY = height * 0.8;
+  const groundY = height * 0.55;
   fill(64, 192, 64);
   rect(0, groundY, width, height - groundY);
 
   // BLANK[1] キャラクターの左右移動
+  if(keyIsDown(LEFT_ARROW)){ x -= 5; } 
+  if(keyIsDown(RIGHT_ARROW)){ x += 5; }
 
-  // BLANK[2] 重力とジャンプ
+  if(keyIsDown(LEFT_ARROW && SHIFT)){ x -= 10; }
+  if(keyIsDown(RIGHT_ARROW && CONTROL)){ x += 10; }
+
+
+
+  // BLANK[2] 重力とジャンプ  
+  vy += g;  
+
+  if(key == " "){ vx = -100 * vx; }
+  if(key == " "){ vy = -100 * vy; }
+ 
+   y = constrain(y, 0, height);
+ 
+  
 
   // 速くなりすぎないように制限
   vx = constrain(vx, -20, 20);
@@ -34,7 +49,12 @@ function draw(){
 
   // 位置を更新
   x += vx;
-  y += vy;
+  y += vy;  
+
+if (y > groundY - size/2) {
+  y = groundY - size/2;
+  vy = 0;
+}
 
   // キャラクターを描く
   fill(0);
