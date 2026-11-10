@@ -36,8 +36,8 @@ function draw(){
   // BLANK[2] 重力とジャンプ  
   vy += g;  
 
-  if(key == " "){ vx = -100 * vx; }
-  if(key == " "){ vy = -100 * vy; }
+  if(key == " "){ vx = -50 * vx; }
+  if(key == " "&& y==groundY-size/2){ vy = -50 * vy; }
  
    y = constrain(y, 0, height);
  
