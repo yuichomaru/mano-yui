@@ -52,8 +52,8 @@ function draw(){
   x: width/2,
   y: height/2,
   size: 10,
-  vx: random(-2, 2),
-  vy: random(-2, 2)
+  vx: random(-5, 5),
+  vy: random(-5, 5)
 });
     // BLANK[1] 新しい的オブジェクトを作成して targets 配列に追加しよう
   }
@@ -66,7 +66,7 @@ function draw(){
       let hit = false;
       for(let j = 0; j < balls.length; j++){ // すべてのボールと衝突判定
         let b = balls[j];
-        if(dist(t.x, t.y, b.x, b.y) < (t.size + b.size) / 2){
+        if(dist(t.x, t.y, b.x, b.y) <= (t.size + b.size) / 2){
     hit = true;}
         // BLANK[2]
       }
